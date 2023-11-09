@@ -15,7 +15,7 @@ fn despace(s: &String) -> String {
 }
 
 fn main() -> io::Result<()> {
-    let file = File::open(r"C:\Users\Yello\Downloads\mr(2).txt")?;
+    let file = File::open(input_file)?;
     let reader = BufReader::new(file);
     let mut bigrams: HashMap<&str, i32> = HashMap::new();
 
