@@ -14,13 +14,26 @@ fn despace(s: &String) -> String {
     x
 }
 
+fn vectorize(s: &String) -> Vec<char> {
+    let mut v = vec![];
+    
+    for i in s.chars() {
+        v.push(i);
+    }
+    v
+}
+
+
 fn main() -> io::Result<()> {
-    let file = File::open(input_file)?;
+    let file = File::open(r"C:\Users\Yello\Downloads\mr(2).txt")?;
     let reader = BufReader::new(file);
-    let mut bigrams: HashMap<&str, i32> = HashMap::new();
+    // let mut bigrams: HashMap<&str, i32> = HashMap::new();
 
     for line in reader.lines() {
-        
+        let x = line.unwrap();
+        let v = vectorize(&despace(&x));
+        let bigrams = v.windows(2);
+        println!("{:?}", bigrams);
     }
 
     Ok(())
